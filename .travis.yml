@@ -3,21 +3,11 @@ language: python
 python:
     - "3.6"
 
-env:
-    - pip install -r requirements.txt
-
-sudo: false
-
 install:
-    # flake8: static analysis and style checks against PEP8
     - pip install -U flake8
-    # pytest: unittest
-    - pip install -U pytest
-
-before_script:
-    # Static analysis
-    - flake8 .
+    - pip install -U flake8-bugbear
+    - pip install -U flake8-docstrings
 
 script:
-    # Unittest
-    - pytest
+    # static analysis
+- flake8 .
